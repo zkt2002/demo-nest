@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true, // 开启装饰器
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES5",
+    "emitDecoratorMetadata": true
+  },
+}
