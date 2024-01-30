@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 // import { NestFactory } from '@nestjs/core';
 // import { Module, Controller, Get, Injectable } from '@nestjs/common'
-import { FakeFactory, Module, Controller, Get, Injectable } from './fake'
+import { FakeFactory, Module, Controller, Get, Injectable, Post } from './fake'
 
 // Service
 @Injectable()
@@ -10,6 +10,10 @@ export class CatsService {
 
   hello(): string {
     return this.cats.join(',') + ' meow'
+  }
+
+  world():string {
+    return this.cats.join(',') + ' world'
   }
 }
 
@@ -21,6 +25,11 @@ class CatsController {
   @Get('/hello')
   hello() {
     return this.catsService.hello()
+  }
+
+  @Post('/world')
+  world() {
+    return this.catsService.world()
   }
 }
 

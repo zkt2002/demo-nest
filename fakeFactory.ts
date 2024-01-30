@@ -1,10 +1,5 @@
 import 'reflect-metadata'
-import { Get, Post } from './Methods'
 import express from 'express'
-
-import Module from './Module'
-import Controller from './Controller'
-import Injectable from './injectable'
 import { FAKE_BASE_PATH, FAKE_INJECTABLE_WATERMARK, FAKE_METHOD, FAKE_PATH } from './common/const'
 
 class _FakeFactory {
@@ -32,6 +27,7 @@ class _FakeFactory {
       // 获取constructor所需provider
       const paramtypes = Reflect.getMetadata('design:paramtypes', Controller)
 
+      // provider 需要是 inject 注入的才能使用, 
       const args = paramtypes.map((Type: any) => {
         if (!Reflect.getMetadata(FAKE_INJECTABLE_WATERMARK, Type)) {
           throw new Error(`${Type.name} is not injectable!`)
